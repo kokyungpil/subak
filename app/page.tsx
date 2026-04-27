@@ -2,6 +2,16 @@ import Image from "next/image";
 
 export default function Home() {
   return (
+
+    export default function Home() {
+  return (
+    <div style={{color: "white", background: "black", height: "100vh"}}>
+      <h1>🍉 마나수박 오픈</h1>
+      <p>만화 사이트 테스트 중</p>
+    </div>
+  );
+}
+    
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Image
