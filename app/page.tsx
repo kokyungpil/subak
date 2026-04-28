@@ -113,12 +113,12 @@ export default async function Home() {
   </div>
 
   <nav className="desktop-nav">
-    <a>최신화</a>
-    <a>만화목록</a>
-    <a>자유게시판</a>
-    <a>커뮤니티</a>
-    <a>만화신청</a>
-    <a>고객센터</a>
+  <a>📖<span>최신화</span></a>
+  <a>📚<span>만화목록</span></a>
+  <a>💬<span>자유게시판</span></a>
+  <a>👥<span>커뮤니티</span></a>
+  <a>🖊️<span>만화신청</span></a>
+  <a>🎧<span>고객센터</span></a>
   </nav>
 
   <button className="login-top-btn">로그인</button>
