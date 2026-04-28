@@ -77,14 +77,17 @@ const visitCount = visit?.count ?? 0;
 
   return (
     <main className="page">
+      <div className="top-info-bar">
+    👀 방문자 {visitorCount.toLocaleString()}
+      </div>
+      
       <header className="topbar">
         <div className="logo">🍉 마나수박</div>
         <nav>
           <a>최신화</a>
           <a>만화목록</a>
           <a>게시판</a>
-          <a>랭킹</a>
-          <a>방문자수: {visitCount}</a>
+          <a>랭킹</a>        
         </nav>
         <button>로그인</button>
       </header>
