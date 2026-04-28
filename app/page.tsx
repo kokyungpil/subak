@@ -78,7 +78,7 @@ const visitCount = visit?.count ?? 0;
   return (
     <main className="page">
       <div className="top-info-bar">
-    👀 방문자수 {visitorCount}
+    👀 방문자수 {visitCount}
       </div>
       
       <header className="topbar">
