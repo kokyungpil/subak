@@ -190,7 +190,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <aside className="sidebar">
+         <section className="side-box">
           <button className="login-btn">로그인하러 가기</button>
 
           <div className="auth-links">
@@ -198,7 +198,8 @@ export default async function Home() {
             <span>|</span>
             <a>정보찾기</a>
           </div>
-
+          </section>
+        
           <section className="side-box">
             <h3>최근 본 만화</h3>
             {recentViewed.map((item) => (
