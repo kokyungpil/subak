@@ -43,6 +43,27 @@ function ComicCard({ title, episode, emoji }: { title: string; episode?: string;
   );
 }
 
+import { supabase } from "@/lib/supabase";
+
+export default async function Home() {
+  // 방문자 +1
+  await supabase.rpc("increment_visit");
+
+  // 현재 방문자 수 가져오기
+  const { data } = await supabase
+    .from("visits")
+    .select("count")
+    .eq("id", 1)
+    .single();
+
+  return (
+    <main>
+      <h1>마나수박 🔥</h1>
+      <p>총 방문자: {data?.count}</p>
+    </main>
+  );
+}
+
 export default function Home() {
   return (
     <main className="page">
