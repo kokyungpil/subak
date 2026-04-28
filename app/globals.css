@@ -65,6 +65,7 @@ a {
 
 .topbar nav {
   display: flex;
+  align-items: center;
   gap: 24px;
   font-size: 15px;
   font-weight: 800;
