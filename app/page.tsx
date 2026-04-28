@@ -44,6 +44,19 @@ function ComicCard({ title, episode, emoji }: { title: string; episode?: string 
 }
 
 export default async function Home() {
+
+  // 방문자 +1
+await supabase.rpc("increment_visitors");
+
+// 현재 방문자수 가져오기
+const { data: visitor } = await supabase
+  .from("visitors")
+  .select("count")
+  .eq("id", 1)
+  .single();
+
+const visitorCount = visitor?.count ?? 0;
+  
   const { data, error } = await supabase
     .from("comics")
     .select("id,title,episode,emoji")
@@ -65,6 +78,7 @@ export default async function Home() {
   return (
     <main className="page">
       <header className="topbar">
+        <p style={{ marginTop: "10px", fontWeight: "bold" }}>  👀 방문자수: {visitorCount} </p>
         <div className="logo">🍉 마나수박</div>
         <nav>
           <a>최신화</a>
