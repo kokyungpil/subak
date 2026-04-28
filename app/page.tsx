@@ -2,20 +2,25 @@ export const dynamic = "force-dynamic";
 
 import { supabase } from "@/lib/supabase";
 
-const comicList = [
-  "바이바이바이", "하가네와 와카바", "마카츠키 마오", "귀부인 로자",
-  "알흔 파기당한 공작", "카사네 전기", "안기고 싶은 여자", "괴물 메이드",
-  "남자애가 되어버린", "소원의 아스트라", "이웃집 릴리짱", "하라하라 선생님",
-];
-
 const boards = [
   "마붕이들 잠깐만...",
   "다들 5월 휴재 뭐 볼거야?",
   "단편 추천 좀 해줘",
   "요즘 작화 좋은 작품 있음?",
   "이모티콘 썸네일 귀엽다",
+  "업데이트 오류 제보합니다",
+  "재밌는 작품 추천받아요",
+  "오늘 올라온 거 뭐 봄?",
 ];
 
+const boardSections = [
+  { title: "마나게시판", icon: "🍉" },
+  { title: "유머 / 감상", icon: "💬" },
+  { title: "역식자게시판", icon: "📝" },
+  { title: "일본게시판", icon: "🇯🇵" },
+];
+
+const recentViewed = ["최근 본 만화가 없습니다."];
 const weeklyBest = [
   "별빛 헌터 12화",
   "복숭아 기사단 6화",
@@ -23,6 +28,10 @@ const weeklyBest = [
   "고양이 탐정 9화",
   "우주 급식실 3화",
   "마법사 인턴 18화",
+  "하라하라 선생님",
+  "소원의 아스트라",
+  "카사네 전기",
+  "괴물 메이드",
 ];
 
 type Comic = {
@@ -32,9 +41,9 @@ type Comic = {
   emoji?: string | null;
 };
 
-function ComicCard({ title, episode, emoji }: { title: string; episode?: string | null; emoji?: string | null }) {
+function ComicCard({ title, episode, emoji }: Comic) {
   return (
-    <article className="comic-card">
+    <article className="comic-card compact">
       <div className="comic-thumb">{emoji || "🍉"}</div>
       <div className="comic-info">
         <span className="new-badge">New</span>
@@ -46,26 +55,23 @@ function ComicCard({ title, episode, emoji }: { title: string; episode?: string 
 }
 
 export default async function Home() {
+  await supabase.rpc("increment_visits");
 
-  // 방문자 +1
-await supabase.rpc("increment_visits");
+  const { data: visit } = await supabase
+    .from("visits")
+    .select("count")
+    .eq("id", 1)
+    .single();
 
-// 현재 방문자수 가져오기
-const { data: visit } = await supabase
-  .from("visits")
-  .select("count")
-  .eq("id", 1)
-  .single();
+  const visitCount = visit?.count ?? 0;
 
-const visitCount = visit?.count ?? 0;
-  
   const { data, error } = await supabase
     .from("comics")
     .select("id,title,episode,emoji")
     .order("id", { ascending: false })
-    .limit(6);
+    .limit(30);
 
-  const latestComics: Comic[] =
+  const comics: Comic[] =
     data && data.length > 0
       ? data
       : [
@@ -79,26 +85,33 @@ const visitCount = visit?.count ?? 0;
 
   return (
     <main className="page">
-      
-     
       <div className="top-info-bar2">
-        <a className="top-info-bar1" href="https://open.kakao.com/o/gBTNNssi"  target="_blank"  rel="noopener noreferrer">  💬 오픈채팅 참여하기  </a>
-        방문자수 {visitCount}
+        <a
+          className="top-info-bar1"
+          href="https://open.kakao.com/o/gBTNNssi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          💬 오픈채팅 참여하기
+        </a>
+        <span>방문자수 {visitCount}</span>
       </div>
-      <br/>
+
       <header className="topbar">
         <div className="logo">🍉 마나수박</div>
+
         <nav>
           <a>최신화</a>
           <a>만화목록</a>
           <a>게시판</a>
-          <a>랭킹</a>        
+          <a>랭킹</a>
         </nav>
+
         <button>로그인</button>
       </header>
 
       <section className="hero">
-        <div>
+        <div className="hero-text">
           <p className="badge">광고 없는 깔끔한 만화 홈</p>
           <h1>
             여기가 바로 만화천국
@@ -108,47 +121,41 @@ const visitCount = visit?.count ?? 0;
           <p>귀여운 이모티콘 썸네일로 시작하는 만화 플랫폼 테스트 페이지</p>
           {error && <p style={{ color: "#ff8a8a" }}>DB 연결 확인 필요</p>}
         </div>
-        <div className="hero-emoji">🍉📚✨</div>
+
+        <div className="hero-character">
+          <img src="/mascot.png" alt="마나수박 캐릭터" />
+        </div>
       </section>
 
       <div className="layout">
         <section className="content">
           <div className="section-title">
             <h2>최신화</h2>
-            <span>DB 연동 테스트</span>
+            <span>+ 더보기</span>
           </div>
 
-          <div className="latest-grid">
-            {latestComics.map((comic) => (
-              <ComicCard
-                key={comic.id}
-                title={comic.title}
-                episode={comic.episode}
-                emoji={comic.emoji}
-              />
+          <div className="dense-grid">
+            {comics.slice(0, 18).map((comic) => (
+              <ComicCard key={comic.id} {...comic} />
             ))}
           </div>
 
-          <div className="board-grid">
-            <section className="board">
-              <div className="section-title">
-                <h2>마나게시판</h2>
-                <span>+ 더보기</span>
-              </div>
-              {boards.map((text) => (
-                <p key={text}>🧡 {text}</p>
-              ))}
-            </section>
+          <div className="board-grid four">
+            {boardSections.map((section) => (
+              <section className="board mini-board" key={section.title}>
+                <div className="section-title small">
+                  <h2>{section.title}</h2>
+                  <span>+ 더보기</span>
+                </div>
 
-            <section className="board">
-              <div className="section-title">
-                <h2>유머 / 감상</h2>
-                <span>+ 더보기</span>
-              </div>
-              {boards.map((text) => (
-                <p key={text}>💬 {text}</p>
-              ))}
-            </section>
+                {boards.slice(0, 6).map((text, index) => (
+                  <p key={`${section.title}-${text}`}>
+                    <b>{section.icon}</b> {text}
+                    <span className="reply">+{index + 1}</span>
+                  </p>
+                ))}
+              </section>
+            ))}
           </div>
 
           <div className="section-title">
@@ -156,14 +163,9 @@ const visitCount = visit?.count ?? 0;
             <span>+ 더보기</span>
           </div>
 
-          <div className="comic-list-grid">
-            {comicList.map((title, index) => (
-              <ComicCard
-                key={title}
-                title={title}
-                episode={`${index + 1}화`}
-                emoji={["🐰", "🌸", "🦊", "🐱", "🪄", "🍓"][index % 6]}
-              />
+          <div className="dense-grid">
+            {comics.map((comic) => (
+              <ComicCard key={`list-${comic.id}`} {...comic} />
             ))}
           </div>
         </section>
@@ -171,9 +173,17 @@ const visitCount = visit?.count ?? 0;
         <aside className="sidebar">
           <button className="login-btn">로그인하러 가기</button>
 
+          <div className="auth-links">
+            <a>회원가입</a>
+            <span>|</span>
+            <a>정보찾기</a>
+          </div>
+
           <section className="side-box">
-            <h3>북마크</h3>
-            <p>자료가 없습니다.</p>
+            <h3>최근 본 만화</h3>
+            {recentViewed.map((item) => (
+              <p key={item}>{item}</p>
+            ))}
           </section>
 
           <section className="side-box">
