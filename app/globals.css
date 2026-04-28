@@ -4,13 +4,19 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
+  min-height: 100%;
+}
+
+body {
   background:
-    radial-gradient(circle at top left, rgba(95, 180, 255, 0.12), transparent 30%),
+    radial-gradient(circle at top left, rgba(95, 180, 255, 0.14), transparent 30%),
     #f4f7fb;
   color: #101828;
   font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 a {
@@ -21,113 +27,170 @@ a {
 .page {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 18px 20px 42px;
 }
 
-.logo-img {
-  height: 42px;
-  width: auto;
-}
-
+/* 상단 정보 */
 .top-info-bar2 {
-  height: 30px;
+  min-height: 30px;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   gap: 14px;
-  color: #64748b;
+  color: #475569;
   font-size: 13px;
   font-weight: 800;
 }
 
 .top-info-bar1 {
-  color: #475569;
+  color: #334155;
 }
 
-/* 네비 */
+/* 헤더 */
 .topbar {
-  height: 64px;
-  background: rgba(255, 255, 255, 0.9);
+  height: 78px;
+  background: rgba(255, 255, 255, 0.94);
   border: 1px solid #e5edf7;
-  border-radius: 18px;
-  padding: 0 22px;
+  border-radius: 24px;
+  padding: 0 22px 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 10px 30px rgba(60, 80, 120, 0.08);
-  margin-bottom: 22px;
+  gap: 22px;
+  box-shadow: 0 14px 38px rgba(60, 80, 120, 0.08);
+  margin-bottom: 24px;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: 900;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
+.logo img {
+  height: 62px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.logo:not(:has(img)) {
+  font-size: 26px;
+  font-weight: 950;
+  letter-spacing: -1px;
+}
+
+.desktop-nav,
 .topbar nav {
   display: flex;
   align-items: center;
-  gap: 24px;
-  font-size: 15px;
-  font-weight: 800;
+  justify-content: center;
+  gap: 28px;
+  flex: 1;
+  color: #0f172a;
+  font-size: 16px;
+  font-weight: 950;
+  white-space: nowrap;
 }
 
+.desktop-nav a,
+.topbar nav a {
+  cursor: pointer;
+}
+
+.desktop-nav a:hover,
 .topbar nav a:hover {
   color: #1d9bf0;
 }
 
 .topbar button,
+.login-top-btn,
 .login-btn {
   border: 0;
   background: #111827;
   color: white;
-  padding: 12px 18px;
-  border-radius: 14px;
-  font-size: 14px;
-  font-weight: 800;
+  padding: 13px 20px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 900;
   cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: 0 12px 26px rgba(17, 24, 39, 0.16);
+}
+
+.mobile-menu {
+  display: none;
 }
 
 /* 히어로 */
 .hero {
-  min-height: 260px;
+  min-height: 320px;
   background:
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.8), transparent 25%),
-    linear-gradient(135deg, #4db8ff, #bfe9ff);
-  border-radius: 28px;
-  padding: 42px;
+    radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.75), transparent 24%),
+    linear-gradient(135deg, #43adff 0%, #8bd2ff 48%, #d8f2ff 100%);
+  border-radius: 30px;
+  padding: 44px 54px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
-  box-shadow: 0 12px 40px rgba(80, 170, 255, 0.25);
+  gap: 30px;
+  margin-bottom: 28px;
+  box-shadow: 0 18px 52px rgba(80, 170, 255, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  overflow: hidden;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
 }
 
 .badge {
   display: inline-block;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.32);
   color: white;
-  padding: 8px 14px;
+  padding: 9px 15px;
   border-radius: 999px;
-  font-size: 13px;
-  font-weight: 900;
+  font-size: 14px;
+  font-weight: 950;
+  border: 1px solid rgba(255, 255, 255, 0.38);
 }
 
 .hero h1 {
-  font-size: 42px;
+  font-size: 46px;
   line-height: 1.1;
-  margin: 14px 0;
-  color: #fff;
-  font-weight: 900;
+  margin: 16px 0;
+  color: #ffffff;
+  font-weight: 950;
+  letter-spacing: -1.8px;
+  text-shadow: 0 6px 20px rgba(0, 80, 150, 0.24);
 }
 
 .hero p {
-  color: rgba(255,255,255,0.9);
-  font-size: 14px;
-  font-weight: 600;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.hero-character {
+  width: 430px;
+  height: 285px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-character img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 30px rgba(0, 90, 150, 0.22));
 }
 
 .hero-emoji {
-  font-size: 88px;
+  font-size: 92px;
+  filter: drop-shadow(0 18px 24px rgba(0, 90, 150, 0.18));
 }
 
 /* 레이아웃 */
@@ -144,38 +207,39 @@ a {
   gap: 22px;
 }
 
-/* 제목 */
 .section-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #111;
+  border-bottom: 2px solid #111827;
   padding-bottom: 10px;
 }
 
 .section-title h2 {
   margin: 0;
-  font-size: 22px;
-  font-weight: 900;
+  font-size: 23px;
+  font-weight: 950;
+  letter-spacing: -0.8px;
 }
 
 .section-title span {
-  color: #888;
+  color: #64748b;
   font-size: 13px;
-}
-
-/* 카드 그리드 */
-.latest-grid,
-.comic-list-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
+  font-weight: 800;
 }
 
 /* 카드 */
+.latest-grid,
+.comic-list-grid,
+.dense-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
 .comic-card {
-  background: #fff;
-  border: 1px solid #e7eaf0;
+  background: #ffffff;
+  border: 1px solid #e7edf5;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 10px 28px rgba(40, 60, 90, 0.08);
@@ -188,65 +252,96 @@ a {
   box-shadow: 0 16px 36px rgba(70, 150, 220, 0.16);
 }
 
-/* 썸네일 */
 .comic-thumb {
-  height: 160px;
-  margin: 12px;
+  height: 150px;
+  margin: 10px;
   border-radius: 14px;
   background: linear-gradient(135deg, #fff2f8, #eaf7ff);
   border: 1px solid #edf0f5;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 58px;
+  font-size: 54px;
 }
 
-/* 카드 내용 */
+.comic-card.compact .comic-thumb {
+  height: 135px;
+  font-size: 48px;
+}
+
 .comic-info {
-  padding: 0 14px 16px;
+  padding: 0 12px 14px;
 }
 
 .new-badge {
+  display: inline-block;
   background: linear-gradient(135deg, #ff4d6d, #ff8fab);
   color: white;
   padding: 4px 8px;
   border-radius: 999px;
   font-size: 10px;
-  font-weight: 900;
+  font-weight: 950;
 }
 
 .comic-info h3 {
   margin: 8px 0 4px;
-  font-size: 15px;
-  font-weight: 800;
+  color: #101828;
+  font-size: 14px;
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .comic-info p {
   margin: 0;
   color: #667085;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 /* 게시판 */
 .board-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 18px;
+}
+
+.board-grid.four {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .board,
 .side-box {
-  background: #fff;
+  background: #ffffff;
+  border: 1px solid #e7edf5;
   border-radius: 18px;
-  padding: 18px;
+  padding: 16px;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
 }
 
+.section-title.small h2 {
+  font-size: 16px;
+}
+
 .board p {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #eef2f6;
   padding: 8px 0;
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #344054;
+}
+
+.mini-board p {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.reply {
+  color: #ff5a6a;
+  font-weight: 950;
 }
 
 /* 사이드 */
@@ -258,105 +353,7 @@ a {
 
 .login-btn {
   width: 100%;
-}
-
-.side-box h3 {
-  margin: 0 0 10px;
-  border-bottom: 2px solid #111;
-  padding-bottom: 10px;
-}
-
-.side-box p {
-  color: #999;
-  text-align: center;
-  padding: 30px 0;
-}
-
-.side-box li {
-  display: flex;
-  gap: 8px;
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-  font-size: 13px;
-}
-
-.side-box li span {
-  background: #56b6ff;
-  color: white;
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  text-align: center;
-  line-height: 22px;
-  font-weight: 800;
-}
-
-/* 반응형 */
-@media (max-width: 900px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
-
-  .latest-grid,
-  .comic-list-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .topbar nav {
-    display: none;
-  }
-
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-  }
-}
-
-.dense-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
-}
-
-.comic-card.compact .comic-thumb {
-  height: 135px;
-  font-size: 48px;
-}
-
-.comic-card.compact .comic-info h3 {
-  font-size: 13px;
-}
-
-.comic-card.compact .comic-info p {
-  font-size: 12px;
-}
-
-.board-grid.four {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.section-title.small h2 {
-  font-size: 16px;
-}
-
-.mini-board {
-  padding: 14px;
-}
-
-.mini-board p {
-  font-size: 13px;
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.reply {
-  color: #ff5a6a;
-  font-weight: 900;
+  background: linear-gradient(135deg, #1f2937, #111827);
 }
 
 .auth-links {
@@ -370,8 +367,80 @@ a {
   cursor: pointer;
 }
 
+.side-box h3 {
+  margin: 0 0 12px;
+  border-bottom: 2px solid #111827;
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.side-box p {
+  color: #98a2b3;
+  text-align: center;
+  padding: 26px 0;
+  font-weight: 800;
+}
+
+.side-box ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.side-box li {
+  display: flex;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eef2f6;
+  font-size: 13px;
+  font-weight: 800;
+  color: #344054;
+}
+
+.side-box li span {
+  background: linear-gradient(135deg, #3ba7ff, #8bd3ff);
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  text-align: center;
+  line-height: 22px;
+  font-weight: 950;
+  flex-shrink: 0;
+}
+
+/* 태블릿 */
 @media (max-width: 1100px) {
-  .dense-grid {
+  .page {
+    padding: 16px;
+  }
+
+  .desktop-nav,
+  .topbar nav {
+    gap: 18px;
+    font-size: 14px;
+  }
+
+  .logo img {
+    height: 54px;
+  }
+
+  .hero-character {
+    width: 340px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .dense-grid,
+  .latest-grid,
+  .comic-list-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 
@@ -380,88 +449,87 @@ a {
   }
 }
 
+/* 모바일 */
 @media (max-width: 700px) {
-  .dense-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .board-grid.four {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================
-   Mobile responsive fix
-   ========================= */
-
-@media (max-width: 900px) {
-  body {
-    overflow-x: hidden;
-  }
-
   .page {
-    width: 100%;
-    max-width: 100%;
-    padding: 12px;
+    padding: 10px;
   }
 
   .top-info-bar2 {
-    height: auto;
-    padding: 8px 4px;
-    font-size: 12px;
+    min-height: 28px;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
+    font-size: 12px;
   }
 
   .topbar {
-    height: auto;
-    min-height: 64px;
-    border-radius: 18px;
-    padding: 12px 14px;
-    gap: 12px;
+    height: 78px;
+    padding: 0 14px;
+    border-radius: 20px;
+    margin-bottom: 10px;
   }
 
   .logo img {
-    height: 36px;
-    max-width: 150px;
-    object-fit: contain;
+    height: 58px;
+    max-width: 190px;
   }
 
-  .logo {
-    font-size: 22px;
-    white-space: nowrap;
+  .logo:not(:has(img)) {
+    font-size: 24px;
   }
 
+  .desktop-nav,
   .topbar nav {
     display: none;
   }
 
-  .topbar button {
-    padding: 10px 14px;
-    border-radius: 14px;
+  .topbar button,
+  .login-top-btn {
+    display: block;
+    padding: 10px 13px;
     font-size: 13px;
-    white-space: nowrap;
+    border-radius: 13px;
+  }
+
+  .mobile-menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    background: white;
+    border-radius: 18px;
+    padding: 9px;
+    margin-bottom: 14px;
+    box-shadow: 0 10px 28px rgba(40, 60, 90, 0.08);
+  }
+
+  .mobile-menu a {
+    height: 58px;
+    border-radius: 12px;
+    background: #f8fbff;
+    border: 1px solid #edf2f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    font-size: 19px;
+    font-weight: 900;
+  }
+
+  .mobile-menu span {
+    font-size: 11px;
+    color: #111827;
   }
 
   .hero {
-    min-height: auto;
-    padding: 28px 20px;
-    border-radius: 24px;
-    flex-direction: column;
-    text-align: left;
+    min-height: 230px;
+    padding: 24px 18px;
+    border-radius: 22px;
+    margin-bottom: 22px;
     align-items: flex-start;
-    gap: 22px;
-  }
-
-  .hero h1 {
-    font-size: 34px;
-    line-height: 1.12;
-    letter-spacing: -1px;
-  }
-
-  .hero p {
-    font-size: 14px;
-    line-height: 1.5;
+    text-align: left;
+    gap: 12px;
   }
 
   .badge {
@@ -469,34 +537,31 @@ a {
     padding: 7px 12px;
   }
 
+  .hero h1 {
+    font-size: 30px;
+    line-height: 1.12;
+    letter-spacing: -1px;
+    margin: 12px 0;
+  }
+
+  .hero p {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
   .hero-character {
     width: 100%;
-    height: 210px;
+    height: 155px;
     justify-content: center;
   }
 
   .hero-character img {
-    max-width: 280px;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    max-width: 235px;
   }
 
   .hero-emoji {
-    font-size: 68px;
+    font-size: 64px;
     align-self: center;
-  }
-
-  .layout {
-    display: block;
-  }
-
-  .content {
-    gap: 20px;
-  }
-
-  .section-title {
-    padding-bottom: 8px;
   }
 
   .section-title h2 {
@@ -507,70 +572,67 @@ a {
     font-size: 12px;
   }
 
+  .dense-grid,
   .latest-grid,
-  .comic-list-grid,
-  .dense-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+  .comic-list-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px;
   }
 
   .comic-card {
-    border-radius: 14px;
-  }
-
-  .comic-thumb {
-    height: 118px;
-    margin: 8px;
     border-radius: 12px;
-    font-size: 42px;
   }
 
+  .comic-thumb,
   .comic-card.compact .comic-thumb {
-    height: 118px;
-    font-size: 42px;
+    height: 92px;
+    margin: 6px;
+    border-radius: 11px;
+    font-size: 34px;
   }
 
   .comic-info {
-    padding: 0 10px 12px;
+    padding: 0 7px 9px;
   }
 
   .new-badge {
-    font-size: 9px;
-    padding: 3px 7px;
+    font-size: 8px;
+    padding: 3px 6px;
   }
 
   .comic-info h3 {
-    font-size: 12px;
-    margin: 7px 0 3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 11px;
+    margin: 6px 0 3px;
   }
 
   .comic-info p {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .board-grid,
   .board-grid.four {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
   }
 
   .board,
   .side-box {
-    border-radius: 16px;
-    padding: 14px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .section-title.small h2 {
+    font-size: 14px;
   }
 
   .mini-board p,
   .board p {
-    font-size: 13px;
+    font-size: 11px;
+    padding: 7px 0;
   }
 
   .sidebar {
-    position: static;
-    margin-top: 22px;
+    margin-top: 18px;
     gap: 14px;
   }
 
@@ -580,52 +642,30 @@ a {
   }
 
   .auth-links {
-    margin: 8px 0 14px;
+    margin: 6px 0 12px;
   }
 }
 
-@media (max-width: 520px) {
-  .page {
-    padding: 10px;
+/* 아주 작은 폰 */
+@media (max-width: 420px) {
+  .logo img {
+    height: 52px;
+    max-width: 170px;
   }
 
-  .topbar {
-    margin-bottom: 16px;
-  }
-
-  .hero {
-    padding: 24px 18px;
-    border-radius: 22px;
-    margin-bottom: 22px;
+  .topbar button,
+  .login-top-btn {
+    padding: 9px 11px;
+    font-size: 12px;
   }
 
   .hero h1 {
-    font-size: 30px;
-  }
-
-  .hero-character {
-    height: 190px;
-  }
-
-  .hero-character img {
-    max-width: 240px;
-  }
-
-  .latest-grid,
-  .comic-list-grid,
-  .dense-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    font-size: 27px;
   }
 
   .comic-thumb,
   .comic-card.compact .comic-thumb {
-    height: 130px;
-  }
-
-  .top-info-bar2 {
-    justify-content: center;
-    text-align: center;
+    height: 84px;
+    font-size: 31px;
   }
 }
-
