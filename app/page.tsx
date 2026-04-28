@@ -174,8 +174,8 @@ export default async function Home() {
           </div>
 
           <div className="dense-grid">
-            {comics.map((comic) => (
-              <ComicCard key={`list-${comic.id}`} {...comic} />
+            {comics.slice(0, 24).map((comic) => (
+              <ComicCard key={comic.id} {...comic} />
             ))}
           </div>
         </section>
