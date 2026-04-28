@@ -59,37 +59,50 @@ a {
 }
 
 .hero {
-  min-height: 260px;
-  background: linear-gradient(135deg, #87CEFA, #bfe9ff);
-  color: white;
-  border-radius: 28px;
-  padding: 42px;
+  min-height: 300px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.65), transparent 28%),
+    linear-gradient(135deg, #4db8ff 0%, #8fd8ff 45%, #d9f3ff 100%);
+  color: #08324a;
+  border-radius: 32px;
+  padding: 52px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 20px 60px rgba(60, 150, 220, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.75);
 }
 
 .badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.12);
-  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.55);
+  color: #0b5f8f;
+  padding: 10px 16px;
   border-radius: 999px;
   font-size: 14px;
+  font-weight: 900;
+  border: 1px solid rgba(255, 255, 255, 0.75);
 }
 
 .hero h1 {
-  font-size: 48px;
-  line-height: 1.1;
-  margin: 14px 0;
+  font-size: 56px;
+  line-height: 1.08;
+  margin: 18px 0;
+  color: #ffffff;
+  text-shadow: 0 4px 18px rgba(0, 80, 140, 0.32);
+  letter-spacing: -1.8px;
 }
 
 .hero p {
-  color: #ddd;
+  color: #1f5f7f;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .hero-emoji {
-  font-size: 96px;
+ font-size: 110px;
+  filter: drop-shadow(0 16px 20px rgba(0, 80, 140, 0.18));
 }
 
 .layout {
