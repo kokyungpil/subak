@@ -142,7 +142,7 @@ export default async function Home() {
   <button className="login-btn">로그인하러 가기</button>
   <div className="auth-links">
     <a>회원가입</a>
-    <span>|</span>
+    <span>|||</span>
     <a>정보찾기</a>
   </div>
 </div>
