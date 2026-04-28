@@ -59,45 +59,60 @@ a {
 }
 
 .hero {
-  min-height: 300px;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.65), transparent 28%),
-    linear-gradient(135deg, #4db8ff 0%, #8fd8ff 45%, #d9f3ff 100%);
-  color: #08324a;
+  position: relative;
+  min-height: 320px;
   border-radius: 32px;
-  padding: 52px;
+  overflow: hidden;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 52px;
   margin-bottom: 28px;
-  box-shadow: 0 20px 60px rgba(60, 150, 220, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.75);
 }
 
-.badge {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.55);
-  color: #0b5f8f;
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 900;
-  border: 1px solid rgba(255, 255, 255, 0.75);
+/* 🔥 배경 이미지 */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/og.png") center/cover no-repeat;
+  filter: brightness(0.85);
+  z-index: 0;
+}
+
+/* 🔥 어둡게 깔아서 글자 잘 보이게 */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.2) 40%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  z-index: 1;
+}
+
+/* 내용 위로 올리기 */
+.hero > * {
+  position: relative;
+  z-index: 2;
 }
 
 .hero h1 {
-  font-size: 56px;
-  line-height: 1.08;
-  margin: 18px 0;
-  color: #ffffff;
-  text-shadow: 0 4px 18px rgba(0, 80, 140, 0.32);
-  letter-spacing: -1.8px;
+  color: white;
+  font-size: 52px;
+  font-weight: 900;
 }
 
 .hero p {
-  color: #1f5f7f;
-  font-size: 18px;
-  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
 .hero-emoji {
