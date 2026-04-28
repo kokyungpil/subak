@@ -79,11 +79,11 @@ const visitCount = visit?.count ?? 0;
 
   return (
     <main className="page">
-      <div className="top-info-bar1">  
-        <a href="https://open.kakao.com/o/gBTNNssi"  target="_blank"  rel="noopener noreferrer">  💬 오픈채팅 참여하기  </a>
-      </div>
+      
+     
       <div className="top-info-bar2">
-       방문자수 {visitCount}
+        <a className="top-info-bar1" href="https://open.kakao.com/o/gBTNNssi"  target="_blank"  rel="noopener noreferrer">  💬 오픈채팅 참여하기  </a>
+        방문자수 {visitCount}
       </div>
       <br/>
       <header className="topbar">
