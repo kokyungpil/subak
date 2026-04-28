@@ -1,14 +1,5 @@
 import { supabase } from "@/lib/supabase";
 
-const latestComics = [
-  { title: "별빛 헌터", episode: "12화", emoji: "🌟" },
-  { title: "복숭아 기사단", episode: "6화", emoji: "🍑" },
-  { title: "유령 도서관", episode: "24화", emoji: "👻" },
-  { title: "우주 급식실", episode: "3화", emoji: "🚀" },
-  { title: "마법사 인턴", episode: "18화", emoji: "🪄" },
-  { title: "고양이 탐정", episode: "9화", emoji: "🐱" },
-];
-
 const comicList = [
   "바이바이바이", "하가네와 와카바", "마카츠키 마오", "귀부인 로자",
   "알흔 파기당한 공작", "카사네 전기", "안기고 싶은 여자", "괴물 메이드",
@@ -32,10 +23,17 @@ const weeklyBest = [
   "마법사 인턴 18화",
 ];
 
-function ComicCard({ title, episode, emoji }: { title: string; episode?: string; emoji: string }) {
+type Comic = {
+  id: number;
+  title: string;
+  episode?: string | null;
+  emoji?: string | null;
+};
+
+function ComicCard({ title, episode, emoji }: { title: string; episode?: string | null; emoji?: string | null }) {
   return (
     <article className="comic-card">
-      <div className="comic-thumb">{emoji}</div>
+      <div className="comic-thumb">{emoji || "🍉"}</div>
       <div className="comic-info">
         <span className="new-badge">New</span>
         <h3>{title}</h3>
@@ -45,7 +43,25 @@ function ComicCard({ title, episode, emoji }: { title: string; episode?: string;
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  const { data, error } = await supabase
+    .from("comics")
+    .select("id,title,episode,emoji")
+    .order("id", { ascending: false })
+    .limit(6);
+
+  const latestComics: Comic[] =
+    data && data.length > 0
+      ? data
+      : [
+          { id: 1, title: "별빛 헌터", episode: "12화", emoji: "🌟" },
+          { id: 2, title: "복숭아 기사단", episode: "6화", emoji: "🍑" },
+          { id: 3, title: "유령 도서관", episode: "24화", emoji: "👻" },
+          { id: 4, title: "우주 급식실", episode: "3화", emoji: "🚀" },
+          { id: 5, title: "마법사 인턴", episode: "18화", emoji: "🪄" },
+          { id: 6, title: "고양이 탐정", episode: "9화", emoji: "🐱" },
+        ];
+
   return (
     <main className="page">
       <header className="topbar">
@@ -62,8 +78,13 @@ export default function Home() {
       <section className="hero">
         <div>
           <p className="badge">광고 없는 깔끔한 만화 홈</p>
-          <h1>작품에만 집중하는<br />마나수박</h1>
+          <h1>
+            작품에만 집중하는
+            <br />
+            마나수박
+          </h1>
           <p>귀여운 이모티콘 썸네일로 시작하는 만화 플랫폼 테스트 페이지</p>
+          {error && <p style={{ color: "#ff8a8a" }}>DB 연결 확인 필요</p>}
         </div>
         <div className="hero-emoji">🍉📚✨</div>
       </section>
@@ -72,12 +93,17 @@ export default function Home() {
         <section className="content">
           <div className="section-title">
             <h2>최신화</h2>
-            <span>+ 더보기</span>
+            <span>DB 연동 테스트</span>
           </div>
 
           <div className="latest-grid">
             {latestComics.map((comic) => (
-              <ComicCard key={comic.title} {...comic} />
+              <ComicCard
+                key={comic.id}
+                title={comic.title}
+                episode={comic.episode}
+                emoji={comic.emoji}
+              />
             ))}
           </div>
 
