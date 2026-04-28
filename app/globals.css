@@ -24,6 +24,11 @@ a {
   padding: 20px;
 }
 
+.logo-img {
+  height: 42px;
+  width: auto;
+}
+
 .top-info-bar2 {
   height: 30px;
   display: flex;
