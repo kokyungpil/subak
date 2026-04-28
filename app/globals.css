@@ -123,12 +123,12 @@ a {
 
 /* 히어로 */
 .hero {
-  min-height: 220px;
+  min-height: 160px;
   background:
     radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.75), transparent 24%),
     linear-gradient(135deg, #43adff 0%, #8bd2ff 48%, #d8f2ff 100%);
   border-radius: 30px;
-  padding: 44px 54px;
+  padding: 22px 36px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -156,9 +156,9 @@ a {
 }
 
 .hero h1 {
-  font-size: 46px;
+  font-size: 38px;
   line-height: 1.1;
-  margin: 16px 0;
+  margin: 10px 0;
   color: #ffffff;
   font-weight: 950;
   letter-spacing: -1.8px;
