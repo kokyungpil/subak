@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "마나수박 🍉",
-  description: "광고 없이 만화 보는 사이트",
+  description: "일본 만화 보는 사이트",
   openGraph: {
     title: "마나수박 🍉",
-    description: "광고 없이 만화 보는 사이트",
+    description: "일본 만화 보는 사이트",
     url: "https://subak-psi.vercel.app",
     siteName: "마나수박",
     images: [
