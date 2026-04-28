@@ -18,7 +18,7 @@ export const metadata = {
   openGraph: {
     title: "마나수박 🍉",
     description: "광고 없이 만화 보는 사이트",
-    url: "https://www.manasubak.net",
+    url: "https://subak-psi.vercel.app",
     siteName: "마나수박",
     images: [
       {
