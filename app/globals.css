@@ -449,47 +449,34 @@ a {
   }
 }
 
-/* ===== mobile final fix ===== */
+/* ===== mobile layout fix ===== */
+
+.mobile-login-box {
+  display: none;
+}
 
 @media (max-width: 700px) {
-  .page {
-    padding: 10px;
-  }
-
+  /* 모바일 메뉴 다시 보이게 */
   .topbar {
-    height: 74px;
-    padding: 0 14px;
-    border-radius: 20px;
+    height: auto;
+    padding: 14px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
   }
 
-  .logo img {
-    height: 56px;
-    max-width: 190px;
+  .topbar .logo {
+    font-size: 24px;
   }
 
-  .desktop-nav,
-  .topbar nav,
-  .desktop-login {
-    display: none !important;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .mobile-menu {
-    display: grid;
+  .topbar nav {
+    display: grid !important;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
-    background: white;
-    border-radius: 18px;
-    padding: 9px;
-    margin: 10px 0 14px;
-    box-shadow: 0 10px 28px rgba(40, 60, 90, 0.08);
   }
 
-  .mobile-menu a {
-    height: 56px;
+  .topbar nav a {
+    height: 54px;
     border-radius: 12px;
     background: #f8fbff;
     border: 1px solid #edf2f7;
@@ -502,128 +489,135 @@ a {
     font-weight: 900;
   }
 
-  .mobile-menu span {
+  .topbar nav a span {
     font-size: 11px;
   }
 
+  /* 하늘색 배너 높이 줄이기 */
   .hero {
-    min-height: 190px !important;
+    min-height: 160px !important;
     height: auto !important;
-    padding: 18px 18px !important;
+    padding: 18px !important;
     border-radius: 22px;
-    margin-bottom: 14px;
     display: grid !important;
-    grid-template-columns: 1fr 120px;
+    grid-template-columns: 1fr 110px;
     align-items: center;
     gap: 10px;
-  }
-
-  .hero-text {
-    min-width: 0;
-  }
-
-  .badge {
-    font-size: 11px;
-    padding: 6px 10px;
-    white-space: normal;
   }
 
   .hero h1 {
     font-size: 24px !important;
     line-height: 1.15 !important;
-    margin: 10px 0;
-    letter-spacing: -0.8px;
-    word-break: keep-all;
+    margin: 8px 0;
   }
 
   .hero p {
     font-size: 11px !important;
-    line-height: 1.45;
-    word-break: keep-all;
+    line-height: 1.4;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 6px 10px;
   }
 
   .hero-character {
-    width: 120px !important;
-    height: 130px !important;
+    width: 110px !important;
+    height: 120px !important;
   }
 
   .hero-character img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: right center;
-    border-radius: 16px;
+    object-fit: contain;
   }
 
-  .mobile-only {
+  /* 로그인 박스는 배너 바로 밑 */
+  .mobile-login-box {
     display: block;
     margin: 0 0 18px;
   }
 
-  .desktop-only {
-    display: none !important;
+  .sidebar > .login-btn,
+  .sidebar > .auth-links {
+    display: none;
   }
 
-  .layout {
-    display: block;
-  }
-
+  /* 모바일 카드 4개씩 */
   .dense-grid,
   .latest-grid,
   .comic-list-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px;
   }
 
+  .comic-card {
+    border-radius: 10px;
+  }
+
+  /* 만화 박스 높이 줄이고 이미지 영역 넓게 */
   .comic-thumb,
   .comic-card.compact .comic-thumb {
-    height: 82px;
-    margin: 6px;
-    border-radius: 11px;
-    font-size: 32px;
+    height: 72px;
+    margin: 5px;
+    border-radius: 9px;
+    font-size: 30px;
   }
 
   .comic-info {
-    padding: 0 7px 9px;
+    padding: 0 6px 8px;
+  }
+
+  .new-badge {
+    font-size: 7px;
+    padding: 2px 5px;
   }
 
   .comic-info h3 {
-    font-size: 11px;
-    margin: 6px 0 3px;
+    font-size: 10px;
+    margin: 5px 0 2px;
   }
 
   .comic-info p {
-    font-size: 10px;
+    font-size: 9px;
   }
 
+  /* 게시판 2개씩 */
   .board-grid,
   .board-grid.four {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px;
   }
 
-  .sidebar {
-    position: static;
-    margin-top: 18px;
+  .board,
+  .side-box {
+    padding: 12px;
+    border-radius: 14px;
   }
 
+  .board p,
+  .mini-board p {
+    font-size: 11px;
+  }
+
+  /* 주간 베스트 너무 커지는 것 방지 */
   .side-box ol {
     display: grid;
     grid-template-rows: repeat(10, auto);
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
-    gap: 0 10px;
+    gap: 0 8px;
   }
 
   .side-box li {
-    font-size: 11px;
-    padding: 6px 0;
+    font-size: 10px;
+    padding: 5px 0;
   }
 
   .side-box li span {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    font-size: 11px;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 10px;
   }
 }
