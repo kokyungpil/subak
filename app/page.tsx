@@ -46,16 +46,16 @@ function ComicCard({ title, episode, emoji }: { title: string; episode?: string 
 export default async function Home() {
 
   // 방문자 +1
-await supabase.rpc("increment_visitors");
+await supabase.rpc("increment_visits");
 
 // 현재 방문자수 가져오기
-const { data: visitor } = await supabase
-  .from("visitors")
+const { data: visit } = await supabase
+  .from("visits")
   .select("count")
   .eq("id", 1)
   .single();
 
-const visitorCount = visitor?.count ?? 0;
+const visitCount = visit?.count ?? 0;
   
   const { data, error } = await supabase
     .from("comics")
@@ -85,7 +85,7 @@ const visitorCount = visitor?.count ?? 0;
           <a>게시판</a>
           <a>랭킹</a>
         </nav>
-        <p style={{ marginTop: "10px", fontWeight: "bold" }}>  👀 방문자수: {visitorCount} </p>
+        <p style={{ marginTop: "10px", fontWeight: "bold" }}>   방문자수: {visitCount} </p>
         <button>로그인</button>
       </header>
 
