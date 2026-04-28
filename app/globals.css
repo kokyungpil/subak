@@ -123,7 +123,7 @@ a {
 
 /* 히어로 */
 .hero {
-  min-height: 160px;
+  height: 160px;
   background:
     radial-gradient(circle at 78% 22%, rgba(255, 255, 255, 0.75), transparent 24%),
     linear-gradient(135deg, #43adff 0%, #8bd2ff 48%, #d8f2ff 100%);
