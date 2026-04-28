@@ -1,3 +1,5 @@
+import { supabase } from "@/lib/supabase";
+
 const latestComics = [
   { title: "별빛 헌터", episode: "12화", emoji: "🌟" },
   { title: "복숭아 기사단", episode: "6화", emoji: "🍑" },
