@@ -84,8 +84,8 @@ const visitCount = visit?.count ?? 0;
           <a>만화목록</a>
           <a>게시판</a>
           <a>랭킹</a>
+          <a>방문자수: {visitCount}</a>
         </nav>
-        <p style={{ marginTop: "10px", fontWeight: "bold" }}>   방문자수: {visitCount} </p>
         <button>로그인</button>
       </header>
 
