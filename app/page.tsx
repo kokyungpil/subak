@@ -113,11 +113,11 @@ export default async function Home() {
         <nav>
           <a>최신화</a>
           <a>만화목록</a>
-          <a>게시판</a>
-          <a>랭킹</a>
-        </nav>
-
-        <button>로그인</button>
+          <a>자유게시판</a>
+          <a>커뮤니티</a>
+          <a>만화신청</a>
+          <a>고객센터</a>
+        </nav>        
       </header>
 
       <section className="hero">
