@@ -1,184 +1,23 @@
- @import "tailwindcss";
- 
- :root {
--  --background: #ffffff;
--  --foreground: #171717;
-+  --background: #f4f6fb;
-+  --foreground: #1a1f33;
- }
- 
- @theme inline {
-   --color-background: var(--background);
-   --color-foreground: var(--foreground);
-   --font-sans: var(--font-geist-sans);
-   --font-mono: var(--font-geist-mono);
- }
- 
--@media (prefers-color-scheme: dark) {
--  :root {
--    --background: #0a0a0a;
--    --foreground: #ededed;
--  }
-+* {
-+  box-sizing: border-box;
- }
- 
- body {
--  background: var(--background);
-+  margin: 0;
-+  background:
-+    radial-gradient(circle at 10% 0%, #ffffff, transparent 35%),
-+    linear-gradient(135deg, #f4f6fb, #eceffc 60%, #f6f1ff);
-   color: var(--foreground);
--  font-family: Arial, Helvetica, sans-serif;
-+  font-family: "Pretendard", "Apple SD Gothic Neo", Arial, Helvetica, sans-serif;
-+}
-+
-+.subak-page {
-+  width: min(1120px, 92vw);
-+  margin: 2rem auto 3rem;
-+  display: grid;
-+  gap: 1.5rem;
-+}
-+
-+.hero,
-+.panel,
-+.comic-card {
-+  background: rgba(255, 255, 255, 0.88);
-+  border: 1px solid #ffffff;
-+  border-radius: 22px;
-+  box-shadow: 0 14px 34px rgba(90, 101, 155, 0.15);
-+  backdrop-filter: blur(8px);
-+}
-+
-+.hero {
-+  padding: 2rem;
-+  display: flex;
-+  justify-content: space-between;
-+  align-items: end;
-+  gap: 1rem;
-+}
-+
-+.hero h1 {
-+  margin: 0.25rem 0;
-+  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
-+}
-+
-+.hero__badge {
-+  width: fit-content;
-+  margin: 0;
-+  padding: 0.4rem 0.75rem;
-+  border-radius: 999px;
-+  background: #ffe4a5;
-+  font-size: 0.82rem;
-+  font-weight: 700;
-+  letter-spacing: 0.02em;
-+}
-+
-+.hero__desc {
-+  margin: 0;
-+  color: #4f587a;
-+}
-+
-+.hero__cta {
-+  border: 0;
-+  border-radius: 12px;
-+  background: linear-gradient(135deg, #ff7eb0, #8f96ff);
-+  color: #fff;
-+  font-weight: 700;
-+  padding: 0.8rem 1rem;
-+  cursor: pointer;
-+}
-+
-+.section {
-+  display: grid;
-+  gap: 1rem;
-+}
-+
-+.section__title-row {
-+  display: flex;
-+  align-items: baseline;
-+  justify-content: space-between;
-+}
-+
-+.section__title-row h2,
-+.panel h2 {
-+  margin: 0;
-+}
-+
-+.section__title-row span {
-+  color: #6a7291;
-+  font-size: 0.9rem;
-+}
-+
-+.comic-grid {
-+  display: grid;
-+  gap: 0.9rem;
-+  grid-template-columns: repeat(3, minmax(0, 1fr));
-+}
-+
-+.comic-card {
-+  padding: 1.1rem;
-+}
-+
-+.comic-card__emoji {
-+  font-size: 2rem;
-+  line-height: 1;
-+}
-+
-+.comic-card h3 {
-+  margin: 0.7rem 0 0.2rem;
-+}
-+
-+.comic-card p {
-+  margin: 0;
-+  color: #667098;
-+}
-+
-+.section--split {
-+  grid-template-columns: 1.8fr 1fr;
-+}
-+
-+.panel {
-+  padding: 1.2rem;
-+}
-+
-+.chips {
-+  margin-top: 1rem;
-+  display: flex;
-+  flex-wrap: wrap;
-+  gap: 0.55rem;
-+}
-+
-+.chips span {
-+  background: #f0f2ff;
-+  border-radius: 999px;
-+  padding: 0.4rem 0.8rem;
-+  font-weight: 600;
-+  color: #3e4a82;
-+}
-+
-+.panel ol {
-+  margin: 0.8rem 0 0;
-+  padding-left: 1.2rem;
-+  display: grid;
-+  gap: 0.45rem;
-+}
-+
-+@media (max-width: 860px) {
-+  .hero {
-+    flex-direction: column;
-+    align-items: flex-start;
-+  }
-+
-+  .comic-grid {
-+    grid-template-columns: repeat(2, minmax(0, 1fr));
-+  }
-+
-+  .section--split {
-+    grid-template-columns: 1fr;
-+  }
- }
- 
-EOF
-)
+@import "tailwindcss";
+
+:root {
+  --background: #050505;
+  --foreground: #ededed;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
