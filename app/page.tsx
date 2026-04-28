@@ -78,7 +78,6 @@ const visitorCount = visitor?.count ?? 0;
   return (
     <main className="page">
       <header className="topbar">
-        <p style={{ marginTop: "10px", fontWeight: "bold" }}>  👀 방문자수: {visitorCount} </p>
         <div className="logo">🍉 마나수박</div>
         <nav>
           <a>최신화</a>
@@ -86,6 +85,7 @@ const visitorCount = visitor?.count ?? 0;
           <a>게시판</a>
           <a>랭킹</a>
         </nav>
+        <p style={{ marginTop: "10px", fontWeight: "bold" }}>  👀 방문자수: {visitorCount} </p>
         <button>로그인</button>
       </header>
 
