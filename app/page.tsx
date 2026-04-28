@@ -108,7 +108,7 @@ export default async function Home() {
       </div>
 
       <header className="topbar">
-        <div className="logo">🍉 마나수박</div>
+       <img src="/logo.png" alt="마나수박" className="logo-img" />
 
         <nav>
           <a>최신화</a>
