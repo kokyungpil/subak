@@ -22,7 +22,7 @@ export const metadata = {
     siteName: "마나수박",
     images: [
       {
-        url: "https://www.manasubak.net/og.png",
+       url: "https://subak-psi.vercel.app/og.png",
         width: 1200,
         height: 630,
       },
