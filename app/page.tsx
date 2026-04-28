@@ -93,7 +93,7 @@ const visitorCount = visitor?.count ?? 0;
         <div>
           <p className="badge">광고 없는 깔끔한 만화 홈</p>
           <h1>
-            작품에만 집중하는
+            여기가 바로 만화천국
             <br />
             마나수박
           </h1>
