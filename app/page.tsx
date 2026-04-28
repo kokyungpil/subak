@@ -32,6 +32,16 @@ const weeklyBest = [
   "소원의 아스트라",
   "카사네 전기",
   "괴물 메이드",
+  "사신의 계약자",
+  "용사 재취업",
+  "시간 되돌리기",
+  "마왕의 하루",
+  "천재 마법소녀",
+  "학교 괴담",
+  "비밀 요리사",
+  "로봇 연애",
+  "헌터 길드",
+  "드래곤 키우기",
 ];
 
 type Comic = {
@@ -101,13 +111,14 @@ export default async function Home() {
         <div className="logo">🍉 마나수박</div>
 
         <nav>
-          <a>최신화</a>
-          <a>만화목록</a>
-          <a>게시판</a>
-          <a>랭킹</a>
+        <a>📖<span>최신화</span></a>
+        <a>📚<span>만화목록</span></a>
+        <a>💬<span>자유게시판</span></a>
+        <a>👥<span>커뮤니티</span></a>
+        <a>🖊️<span>만화신청</span></a>
+        <a>🎧<span>고객센터</span></a>
         </nav>
-
-        <button>로그인</button>
+        
       </header>
 
       <section className="hero">
