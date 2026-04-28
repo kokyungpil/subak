@@ -60,7 +60,7 @@ a {
 
 .hero {
   min-height: 260px;
-  background: linear-gradient(135deg, #111, #2a2a2a);
+  background: linear-gradient(135deg, #87CEFA, #bfe9ff);
   color: white;
   border-radius: 28px;
   padding: 42px;
@@ -131,15 +131,16 @@ a {
 }
 
 .comic-card {
-  background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-  transition: 0.2s;
+ border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 12px;
+  background: #111;
+  transition: all 0.2s ease;
 }
 
 .comic-card:hover {
-  transform: translateY(-5px);
+ border-color: #4fd1ff;
+  transform: translateY(-3px);
 }
 
 .comic-thumb {
