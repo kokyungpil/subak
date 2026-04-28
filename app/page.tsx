@@ -80,7 +80,9 @@ const visitCount = visit?.count ?? 0;
   return (
     <main className="page">
       <div className="top-info-bar">
-       <a href="https://open.kakao.com/o/gBTNNssi" target="_blank">  카카오 오픈채팅 </a>
+      <a   href="https://open.kakao.com/o/gBTNNssi"  target="_blank"  rel="noopener noreferrer" >
+  💬 오픈채팅 참여하기
+      </a>
        방문자수 {visitCount}
       </div>
       <br/>
