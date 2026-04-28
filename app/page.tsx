@@ -1,9 +1,3 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/app/page.tsx b/app/page.tsx
-index 580108f7624e5f3ad1fd6de206db8df5effe1fc5..e6d08dbd2e897ec61a97a498cfdfb51797cdb25d 100644
---- a/app/page.tsx
-+++ b/app/page.tsx
-@@ -1,16 +1,76 @@
 -import Image from "next/image";
 +const featuredComics = [
 +  { title: "별빛 헌터", episode: "신작 12화", emoji: "🌟" },
