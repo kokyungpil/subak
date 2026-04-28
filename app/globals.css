@@ -24,6 +24,17 @@ a {
   padding: 20px;
 }
 
+/* 오픈채팅 */
+.top-info-bar1 {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #64748b;
+  font-size: 17px;
+  font-weight: 700;
+}
+
 /* 상단 방문자 */
 .top-info-bar {
   height: 30px;
