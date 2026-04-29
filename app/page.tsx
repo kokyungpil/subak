@@ -138,14 +138,16 @@ export default async function Home() {
         </div>
       </section>
 
-      <div className="mobile-login-box">
-  <button className="login-btn">로그인하러 가기</button>
-  <div className="auth-links">
-    <a>회원가입</a>
-    <span>|||</span>
-    <a>정보찾기</a>
-  </div>
-</div>
+     <aside className="sidebar">
+    <section className="side-box">
+      <button className="login-btn">로그인하러 가기</button>
+
+      <div className="auth-links">
+        <a>회원가입</a>
+        <span>|</span>
+        <a>정보찾기</a>
+      </div>
+    </section>
 
       <div className="layout">
         <section className="content">
