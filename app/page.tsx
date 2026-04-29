@@ -21,6 +21,7 @@ const boardSections = [
 ];
 
 const recentViewed = ["최근 본 만화가 없습니다."];
+
 const weeklyBest = [
   "별빛 헌터 12화",
   "복숭아 기사단 6화",
@@ -61,6 +62,20 @@ function ComicCard({ title, episode, emoji }: Comic) {
         {episode && <p>{episode}</p>}
       </div>
     </article>
+  );
+}
+
+function LoginBox() {
+  return (
+    <section className="side-box login-box">
+      <button className="login-btn">로그인하러 가기</button>
+
+      <div className="auth-links">
+        <a>회원가입</a>
+        <span>|</span>
+        <a>정보찾기</a>
+      </div>
+    </section>
   );
 }
 
@@ -111,14 +126,13 @@ export default async function Home() {
         <div className="logo">🍉 마나수박</div>
 
         <nav>
-        <a>📖<span>최신화</span></a>
-        <a>📚<span>만화목록</span></a>
-        <a>💬<span>자유게시판</span></a>
-        <a>👥<span>커뮤니티</span></a>
-        <a>🖊️<span>만화신청</span></a>
-        <a>🎧<span>고객센터</span></a>
+          <a>📖<span>최신화</span></a>
+          <a>📚<span>만화목록</span></a>
+          <a>💬<span>자유게시판</span></a>
+          <a>👥<span>커뮤니티</span></a>
+          <a>🖊️<span>만화신청</span></a>
+          <a>🎧<span>고객센터</span></a>
         </nav>
-        
       </header>
 
       <section className="hero">
@@ -138,16 +152,14 @@ export default async function Home() {
         </div>
       </section>
 
-     <aside className="sidebar">
-    <section className="side-box">
-      <button className="login-btn">로그인하러 가기</button>
-
-      <div className="auth-links">
-        <a>회원가입</a>
-        <span>|</span>
-        <a>정보찾기</a>
+      <div className="mobile-login-box">
+        <button className="login-btn">로그인하러 가기</button>
+        <div className="auth-links">
+          <a>회원가입</a>
+          <span>|</span>
+          <a>정보찾기</a>
+        </div>
       </div>
-    </section>
 
       <div className="layout">
         <section className="content">
@@ -187,21 +199,14 @@ export default async function Home() {
 
           <div className="dense-grid">
             {comics.slice(0, 18).map((comic) => (
-              <ComicCard key={comic.id} {...comic} />
+              <ComicCard key={`list-${comic.id}`} {...comic} />
             ))}
           </div>
         </section>
 
-         <section className="side-box">
-          <button className="login-btn">로그인하러 가기</button>
+        <aside className="sidebar">
+          <LoginBox />
 
-          <div className="auth-links">
-            <a>회원가입</a>
-            <span>|</span>
-            <a>정보찾기</a>
-          </div>
-          </section>
-        
           <section className="side-box">
             <h3>최근 본 만화</h3>
             {recentViewed.map((item) => (
